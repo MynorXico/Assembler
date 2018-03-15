@@ -114,7 +114,7 @@ public class Code {
             case "JLE":
                 return 0b110;
             case "JMP":
-                return 111;
+                return 0b111;
         }
         return 0;
     }

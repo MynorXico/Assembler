@@ -23,7 +23,7 @@ public class Parser {
     // Opens the input file/stream and gets ready to parse it
     public Parser(String inputPath) throws FileNotFoundException{
         currentCommand = null;
-        currentLine = null;
+        currentLine = "";
         br = new BufferedReader(new FileReader(inputPath));
     }
     
@@ -44,7 +44,7 @@ public class Parser {
     void advance() throws IOException{
         if(hasMoreCommands()){
             if(!currentLine.equals("") && !currentLine.startsWith("//")){
-                currentCommand = currentLine.trim();
+                currentCommand = currentLine.replaceAll("\\s", "");
             }else{
                 advance();
             }
