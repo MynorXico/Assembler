@@ -88,7 +88,7 @@ public class Parser {
     String dest(){
         if(commandType() == instructionType.C_COMMAND){
             if(currentCommand.contains("=")){
-                return currentCommand.substring(0,1);
+                return currentCommand.substring(0,currentCommand.indexOf("="));
             }else{
                 return "null";
             }
@@ -101,9 +101,9 @@ public class Parser {
     String comp(){
         if(commandType() == instructionType.C_COMMAND){
             if(!currentCommand.contains(";")){
-                return currentCommand.substring(2);
-            }else{
-                return currentCommand.substring(0, 1);
+                return currentCommand.substring(currentCommand.indexOf("=")+1);
+            }else{                
+                return currentCommand.substring(0,1);
             }            
         }
         return "null";

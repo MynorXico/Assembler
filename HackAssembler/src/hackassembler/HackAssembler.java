@@ -74,6 +74,7 @@ public class HackAssembler {
                         newLine = "0"+binaryFixedLength(st.GetAddress(p.symbol()), 15);
                     }else{
                         st.addEntry(p.symbol(), RAMAvailable++);
+                        newLine = "0"+binaryFixedLength(st.GetAddress(p.symbol()), 15);
                     }
                 }
 
@@ -93,6 +94,7 @@ public class HackAssembler {
 //                System.out.println("0"+binaryFixedLength(Integer.parseInt(p.symbol()), 15));
                 //System.out.println("---------------------------");  
             }
+            if(!newLine.equals(""))
             bw.write(newLine+'\n');
         }
         bw.close();        
