@@ -17,11 +17,10 @@ import java.nio.file.Path;
  */
 public class Parser {
     BufferedReader br;
-    
     String currentCommand;
     String currentLine;
     // Opens the input file/stream and gets ready to parse it
-    public Parser(String inputPath) throws FileNotFoundException{
+    public Parser(String inputPath, SymbolTable st) throws FileNotFoundException{
         currentCommand = null;
         currentLine = "";
         br = new BufferedReader(new FileReader(inputPath));
@@ -43,8 +42,12 @@ public class Parser {
     // command    
     void advance() throws IOException{
         if(hasMoreCommands()){
-            if(!currentLine.equals("") && !currentLine.startsWith("//")){
+            if(!currentLine.equals("") && !currentLine.startsWith("//") && !currentLine.startsWith("(")){
                 currentCommand = currentLine.replaceAll("\\s", "");
+                if(currentCommand.contains("//")){
+                    currentCommand = currentCommand.substring(0, currentCommand.indexOf("//"));
+                }
+                
             }else{
                 advance();
             }
