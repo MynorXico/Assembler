@@ -29,13 +29,6 @@ public class HackAssembler {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        String line = "This order";
-        String code = "M-D";
-        String pattern = LanguageRules.comp;
-        
-        Pattern r = Pattern.compile(pattern);
-        
-        Matcher m = r.matcher(code);
-        System.out.println(m.matches());
+        System.out.println(Pattern.compile(LanguageRules.ValidInstruction).matcher("AM=M-A").matches());
     }    
 }

@@ -5,6 +5,7 @@
  */
 package hackassembler;
 
+import com.sun.media.sound.InvalidFormatException;
 import hackassembler.Parser.instructionType;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,6 +17,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.io.IOException;
+import java.util.Dictionary;
+import java.util.Hashtable;
 /**
  *
  * @author Maynor
@@ -31,7 +36,9 @@ public class Assembler {
     BufferedWriter bw;
     String filePath;
     String fileName;
+    ArrayList<int[]> LineMatch;
     public Assembler(String InputFilePath) throws FileNotFoundException, IOException{
+        LineMatch = new ArrayList<int[]>();
         filePath = InputFilePath;
         Assembly = new ArrayList<String>();
         MachineL = new ArrayList<String>();
@@ -45,13 +52,16 @@ public class Assembler {
     void Assemble() throws IOException{
         int ROMCounter = 0;
         int RAMCounter = 16;
-        
+        int DocLine = 0;
         fr = new FileReader(filePath);
         br = new BufferedReader(fr);
         String currentLine = br.readLine();
         while(currentLine != null){
             MachineL.add(currentLine);
             currentLine = currentLine.replaceAll("\\s", "");
+            if(!LanguageRules.isValid(currentLine)){ 
+                throw new InvalidFormatException(currentLine + " is not a valid expression\nLine: " + DocLine);
+            }
             if(currentLine.startsWith("(")){
                 st.addEntry(currentLine.replace("(", "").replace(")", ""),
                         ROMCounter);
@@ -61,6 +71,13 @@ public class Assembler {
                 }
             }
             currentLine = br.readLine();
+            int[] newPair = new int[2];
+
+            newPair[0] = DocLine;
+            newPair[1] = ROMCounter-1;
+            DocLine++;
+            
+            LineMatch.add(newPair);
         }
         fr.close();
         br.close();
@@ -95,11 +112,12 @@ public class Assembler {
     }
     
     void WriteFile(String OutputFilePath) throws IOException{
-        if(OutputFilePath.substring(OutputFilePath.lastIndexOf('.')).
+        if(OutputFilePath.contains(".") && OutputFilePath.substring(OutputFilePath.lastIndexOf('.')).
                 equals(".hack")){
             fw = new FileWriter(OutputFilePath);
-        }
+        }else{
         fw = new FileWriter(OutputFilePath+".hack");
+        }
         bw = new BufferedWriter(fw);
         for(String line:Assembly){
             bw.write(line+"\n");
