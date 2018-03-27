@@ -43,7 +43,7 @@ Inmediatamente después de haber abierto el archivo, se llenarán dos columnas q
 Del lado izquierdo se muestra el archivo tal cual se cargó y del lado izquierdo se muestra una vista previa del lenguaje máquina generado por el programa. En la parte inferior se muestra un mensaje indicando si el archivo contenía errores y el tiempo que tardó el programa en traducir a lenguaje máquina.
 
 ### Generando el archivo ".hack"
-Para generar el archivo .hack, basta con hacer clic sobre el ícono del disquete. Al hacer clic sobre el ícono se abrirá un cuadro de diálogo similar a este:
+Para generar el archivo .hack, basta con hacer clic sobre el ícono del disquete. Al hacer clic sobre el ícono se abrirá un cuadro de diálogo similar a este:  
 ![enter image description here](https://lh3.googleusercontent.com/ua7YFCasodmhPszybFAS0F5m-XPNIxtaZXpMSf5BvIypI3SOXW4-iKxffi7Jz8epsEqtDwQB8RCF)
 
 En este cuadro de diálogo debe especificarse el nombre que se le desea dar al archivo de salida, mismo que tendrá la extensión .hack.
