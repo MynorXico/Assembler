@@ -1,7 +1,7 @@
 
-Universidad Rafael Landívar
-Arquitectura del Computador
-Proyecto No. 6 del curso
+Universidad Rafael Landívar<br/>
+Arquitectura del Computador<br/>
+Proyecto No. 6 del curso<br/>
 
 # Hack Assembler
 El proyecto consiste en un Assembler que traduce código en Assembly a Lenguaje Máquina que puede ser interpretado por la Hack CPU construida en un proyecto anterior.
@@ -33,14 +33,14 @@ Después de abierta la aplicación, debería mostrarse en pantalla algo similar 
 ![Ventana inicial del proyecto](https://lh3.googleusercontent.com/X5cSg7ncYTJxia7KYC5El5DtxCL_WY_mOvxqt4wafoZNGv3QBYYnK4uxTFbx_DRLGH6TC1suc6xZ)
 
 ### Cargando el archivo *".asm"*
-Un archivo .asm puede ser cargado desde el menú *File* o dando clic sobre el ícono de la carpeta. Independientemente de la forma que se escoja, se abrirá un cuadro solicitándole abrir el archivo deseado.
+Un archivo .asm puede ser cargado desde el menú *File* o dando clic sobre el ícono de la carpeta. Independientemente de la forma que se escoja, se abrirá un cuadro solicitándole abrir el archivo deseado.<br/>
 ![Cuadro de diálogo](https://lh3.googleusercontent.com/RwcfCYEHL8XrkTBtpbGARCcf7cS-owDgGokL-YlWxfWFcrF0kz3FzDHyHFSIA_CusJNG-_uIMGHD)
 
 Todo lo que debe hacer es seleccionar el archivo y hacer clic sobre el botón abrir.
 Inmediatamente después de haber abierto el archivo, se llenarán dos columnas que se verán similar a esto:
 ![enter image description here](https://lh3.googleusercontent.com/rp_eokHVtj9BwsMY1Fiiq24g81rpVTgZ6YcTDtBpbS3nrD9nIrQ9-hh4FpyinUwzss4paORme_SZ)
 
-Del lado izquierdo se muestra el archivo tal cual se cargó y del lado izquierdo se muestra una vista previa del lenguaje máquina generado por el programa. En la parte inferior se muestra un mensaje indicando si el archivo contenía errores y el tiempo que tardó el programa en traducir a lenguaje máquina.
+Del lado izquierdo se muestra el archivo tal cual se cargó y del lado derecho se muestra una vista previa del lenguaje máquina generado por el programa. En la parte inferior se muestra un mensaje indicando si el archivo contenía errores y el tiempo que tardó el programa en traducir a lenguaje máquina.
 
 ### Generando el archivo ".hack"
 Para generar el archivo .hack, basta con hacer clic sobre el ícono del disquete. Al hacer clic sobre el ícono se abrirá un cuadro de diálogo similar a este:  
